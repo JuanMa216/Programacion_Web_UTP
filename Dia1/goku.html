@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goku y sus transformaciones</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #1A202C ;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .header {
+            width: 80%;
+            height: 4em;
+            background-color: #000000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            
+            div {
+                border: 2px solid;
+                border-style: outset;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: start;
+            }
+        }
+
+        .esfera {
+            width: 75px;
+            height: 90%;
+            border-radius: 0.5em;
+            border: 2px solid;
+            padding: 1em;
+        }
+
+        .nav {
+            height: 3.5em;
+            width: 80%;
+            background-color: #FF6D00; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            color: white;
+            border: 2px solid;
+            border-style: outset;
+        }
+
+        .nav_bar{
+            color: white;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid;
+            border: none
+        }
+
+        .menu {
+            width: 20%;
+            height: 90%;
+            background-color: white; 
+            border: 1px solid #2c727b; 
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 1em;
+            border-radius: 0.25em;
+        }
+
+        .menu:hover{
+            background-color: rgb(81, 93, 180);
+            color: #FF6D00 ;
+            transition: 0.50s;
+        }
+
+        .img_goku {
+            width: 50%;
+            border: 3px solid black;
+            margin: 1em;
+        }
+
+        .imagen_goku {
+            width: 80%;
+            height: calc(100vh - 7em);
+            background-color: #FFFFFF ;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid;
+            margin: 2px;
+            border-style: outset;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .titulo-img {
+            font-size: 3em;
+        }
+
+        .boton-titulo {
+            background-color: #7f888e;
+            color: #060f16;
+            text-decoration: none;
+            padding: 1em 4em;
+            font-size: 1.25em;
+            margin: 1em 0;
+            border-radius: 0.5em;
+            border: 2px solid;
+            border-style: outset;
+        }
+
+        .boton-titulo:hover {
+            background-color: #FF6D00 ;
+            transition: 0.5s;
+            color: azure;
+        }
+
+        .vida_goku {
+            width: 80%;
+            height: 100vh;
+            background-color: #FFFFFF ;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid;
+            border-style: outset;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .titulo_biografia {
+            font-size: 2em;
+        }
+
+        .biografia_goku {
+            font-size: 1.25em;
+            width: 80%;
+            text-align: justify;
+            margin: 1.25em 0;
+        }
+
+        .gallery {
+            width: 80%;
+            height: 40%;
+            background-color: #D2C1B6;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 1.25em 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .box_gallery {
+            width: 24%;
+            background-color: #dfd9d6;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0.25em;
+            border: 2px solid ;
+        }
+
+        .box_img {
+            width: 100%;
+            height: 60%;
+            background-color: #D2C1B6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box_img img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            padding: 2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn_img {
+            background-color: #7f888e;
+            color: #1B3C53;
+            text-decoration: none;
+            padding: 0.5em 3em;
+            font-size: 1em;
+            margin: 1em 0;
+            border-radius: 0.5em;
+        }
+
+        .btn_img:hover {
+            background-color: #FF6D00 ;
+            transition: 0.5s;
+            color: azure;
+        }
+
+        .transformaciones {
+            width: 80%;
+            height: 100%;
+            background-color: #FFFFFF ;
+            border: 2px solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            border-style: outset;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .transformaciones_titulo {
+            margin-top: 1.25em;
+            font-size: 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.25em;
+        }
+
+        .transformaciones_gallery {
+            width: 100%;
+            height: 60%;
+            background-color: #FFFFFF ;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 1.25em 0;
+        }
+
+        .transformaciones_box {
+            width: 80%;
+            background-color: #dfd9d6;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0.25em;
+            border: 2px solid ;
+        }
+
+        .transformacion_img {
+            width: 60%;
+            height: 80%;
+            background-color:rgba(189, 178, 178, 0.41);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.25em;
+            border: 2px solid;
+            border-style: outset;
+        }
+
+        .transformacion_img img {
+            object-fit: cover;            
+            height: 80%;
+            width: 70%;
+            padding: 2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .poderes {
+            width: 80%;
+            height: auto;
+            background-color: #FFFFFF ;
+            border: 2px solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            border-style: outset;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header" id="inicio">
+        <div>
+            <img src="/img/esfera_icon.png" alt="esfera" class="esfera">
+            <ul class="nav_bar">
+            <li class="menu"><a href="#inicio">Inicio</a></li>
+            <li class="menu"><a href="#banner">Banner</a></li>
+            <li class="menu"><a href="#vida_goku">About Goku</a></li>
+            <li class="menu"><a href="#transformaciones">Transformaciones</a></li>
+            <li class="menu"><a href="#poderes">Poderes</a></li>
+        </ul>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <ul class="nav_bar">
+            <li class="menu"><a href="#inicio" style="text-decoration: none;">Inicio</a></li>
+            <li class="menu"><a href="#banner" style="text-decoration: none">Banner</a></li>
+            <li class="menu"><a href="#vida_goku" style="text-decoration: none">About Goku</a></li>
+            <li class="menu"><a href="#transformaciones" style="text-decoration: none">Transformaciones</a></li>
+            <li class="menu"><a href="#poderes" style="text-decoration: none">Poderes</a></li>
+        </ul>
+    </nav>
+
+    <section class="imagen_goku" id="banner">
+        <h1 class="titulo-img">Goku y sus transformaciones</h1>
+        <img src="/img/goku_banner.png" alt="Goku" class="img_goku">
+        <a href="https://youtu.be/Inbg9Pcu7u8?si=IfVbAQxstrLdfwXa" class="boton-titulo" target="_blank">Descubre más</a>
+    </section>
+
+    <section class="vida_goku" id="vida_goku">
+        <h2 class="titulo_biografia">Son Goku</h2>
+        <p class="biografia_goku">Son Goku (孫そん悟ご空くう Son Gokū) es el protagonista del manga y anime de Dragon Ball creado por Akira Toriyama. Su nombre real y de nacimiento es Kakarotto (カカロット) y es uno de los pocos saiyanos que lograron sobrevivir a la destrucción total del Planeta Vegeta a manos de Freeza. Es el segundo hijo de Bardock y Gine, hermano menor de Raditz, nieto adoptivo de Son Gohan, esposo de Chi-Chi, padre de Son Gohan y Son Goten, a su vez también es el abuelo de Pan y ancestro de Son Goku Jr.</p>
+        <div class="gallery">
+            <div class="box_gallery">
+                <div class="box_img">
+                    <img src="/img/goku_sjj1.png" alt="imagen">
+                </div>
+                <h2>SSJ1</h2>
+                <a href="#sjj1" class="btn_img">IR</a>
+            </div>
+            <div class="box_gallery">
+                <div class="box_img">
+                    <img src="/img/goku_sjj2.png" alt="imagen">
+                </div>
+                <h2>SSJ2</h2>
+                <a href="#sjj2" class="btn_img">IR</a>
+            </div>
+            <div class="box_gallery">
+                <div class="box_img">
+                    <img src="/img/goku_ssj3.png" alt="imagen">
+                </div>
+                <h2>SSJ3</h2>
+                <a href="#sjj3" class="btn_img">IR</a>
+            </div>
+            <div class="box_gallery">
+                <div class="box_img">
+                    <img src="img/goku_dios.png" alt="imagen">
+                </div>
+                <h2>SSJ Dios</h2>
+                <a href="#sjjdios" class="btn_img">IR</a>
+            </div>
+            <div class="box_gallery">
+                <div class="box_img">
+                    <img src="/img/goku_blue.png" alt="imagen">
+                </div>
+                <h2>SSJ Blue</h2>
+                <a href="#sjjblue" class="btn_img">IR</a>
+            </div>
+            <div class="box_gallery">
+                <div class="box_img">
+                    <img src="/img/ultra_instinto_incompleto.png" alt="imagen">
+                </div>
+                <h2 style="font-size: smaller;">Ultra Instinto</h2>
+                <h2 style="font-size: smaller; margin: 0;">Incompleto</h2>
+                <a href="#sjjiu" class="btn_img">IR</a>
+            </div>
+            <div class="box_gallery">
+                <div class="box_img">
+                    <img src="/img/ultra_dominado.png" alt="imagen">
+                </div>
+                <h2 style="font-size: smaller;">Ultra Instinto</h2>
+                <h2 style="font-size: smaller; margin: 0;">Dominado</h2>
+                <a href="#sjjic" class="btn_img">IR</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="transformaciones" id="transformaciones">
+        <h2 class="transformaciones_titulo">Transformaciones</h2>
+        <div class="transformaciones_gallery"> 
+            <div class="transformaciones_box">
+                <div class="transformacion_img">
+                    <img src="/img/goku_sjj1.png" alt="Saiyan 1" id="sjj1">
+                    <h2 style="margin-top: 0.5em;">Super Saiyajin 1</h2>
+                </div>
+                <p style="display: flex; flex-direction: column; justify-content: flex-start; text-align: justify; margin: 1.25em 1.25em;">Super Saiyajin (サイヤSūpā Saiya-jin超スーパー人じん ) es una transformación avanzada utilizada por miembros e híbridos de la raza Saiyan con suficientes Células S en la serie Dragon Ball. La forma Super Saiyan debutó por primera vez el 19 de marzo de 1991, dentro del capítulo 317 del manga Dragon Ball , titulado " Vida o Muerte ".</p><br>
+            </div>
+            <div class="transformaciones_box">
+                <div class="transformacion_img">
+                    <img src="/img/goku_sjj2.png" alt="Saiyan 2" id="sjj2">
+                    <h2 style="margin-top: 0.5em;">Super Saiyajin 2</h2>
+                </div>
+                <p style="display: flex; flex-direction: column; justify-content: flex-start; text-align: justify; margin: 1.25em 1.25em;">El Super Saiyan 2 (SSJ2) es una transformación de nivel intermedio en Dragon Ball que supera los límites del Super Saiyan normal, otorgando mayor poder, velocidad y un aura con relámpagos distintivos. Se caracteriza por un cabello más erizado y una mayor masa muscular. Aunque se puede lograr mediante entrenamiento, la ira extrema y una fuerte emoción son gatillos comunes para despertar esta forma, como le ocurrió a Gohan en su batalla contra Cell. </p><br>
+            </div>
+            <div class="transformaciones_box">
+                <div class="transformacion_img">
+                    <img src="/img/goku_ssj3.png" alt="Saiyan 3" id="sjj3">
+                    <h2 style="margin-top: 0.5em;">Super Saiyajin 3</h2>
+                </div>
+                <p style="display: flex; flex-direction: column; justify-content: flex-start; text-align: justify; margin: 1.25em 1.25em;">El Supersaiyano 3 (超スーパーサイヤ人じん３スリー Sūpā Saiya-jin Surī, Super Saiyan Three) es la forma más poderosa de la línea de estados tradicionales del Supersaiyano en el manga original, así como en el anime de Dragon Ball Z. Es la tercera forma de Supersaiyano, el sucesor de la primera y segunda transformación </p><br>
+            </div>
+            <div class="transformaciones_box">
+                <div class="transformacion_img">
+                    <img src="/img/goku_dios.png" alt="Saiyan Dios" id="sjjdios">
+                    <h2 style="margin-top: 0.5em;">Saiyajin Dios</h2>
+                </div>
+                <p style="display: flex; flex-direction: column; justify-content: flex-start; text-align: justify; margin: 1.25em 1.25em;">El Supersaiyano Dios (超スーパーサイヤ人じんゴッド Sūpā Saiya-jin Goddo, Super Saiyan God) es el estado de los dioses alcanzado mediante el ritual de seis saiyanos de corazón puro que aparece en la película Dragon Ball Z: La batalla de los dioses y en Dragon Ball Super</p><br>
+            </div>
+            <div class="transformaciones_box">
+                <div class="transformacion_img">
+                    <img src="img/ultra_instinto_incompleto.png" alt="Ultrainstinto Incompleto" id="sjjiu">
+                    <h2 style="margin-top: 0.5em;">Ultra Instinto Incompleto</h2>
+                </div>
+                <p style="display: flex; flex-direction: column; justify-content: flex-start; text-align: justify; margin: 1.25em 1.25em;">La Doctrina Egoísta Premonitoria (身み勝がっ手ての極ごく意い”兆きざし” Migatte no Goku'i "Kizashi"), es una forma y un estado mental de los dioses obtenido por Son Goku en el Arco de la Supervivencia del Universo del anime y manga de Dragon Ball Super. Este estado le da al usuario la capacidad de utilizar una versión incompleta e imperfecta de la habilidad y estado mental denominado como "Doctrina Egoísta".</p><br>
+            </div>
+            <div class="transformaciones_box">
+                <div class="transformacion_img">
+                    <img src="img/ultra_dominado.png" alt="Ultrainstinto Dominado" id="sjjic">
+                    <h2 style="margin-top: 0.5em;">Ultrainstinto Dominado</h2>
+                </div>
+                <p style="display: flex; flex-direction: column; justify-content: flex-start; text-align: justify; margin: 1.25em 1.25em;">La Doctrina Egoísta(身み勝がっ手ての極ごく意い Migatte no Goku'i), es un estado mental divino y una habilidad de soporte utilizada de manera completamente óptima por el ángel guía conocido como el Gran Sacerdote y enseñada por sus hijos, Merus y Whis, quienes también la dominan, a sus alumnos (entre ellos Beerus, quien no la ha podido dominar aún del todo) y Son Goku, el cual la obtiene de manera momentánea al transformarse en los estados de los dioses, la Doctrina Egoísta Premonitoria y la transformación completa de la Doctrina Egoísta.</p><br>
+            </div>
+            
+        </div>
+    </section>
+    <section class="poderes" id="poderes">
+        <h2 style="font-size: 2em; margin-top: 1.25em;">Poderes y Tecnicas</h2>
+        <div style="background-color: orange; width: 80%; height: 90%; display: flex; flex-direction: column; justify-content: center;
+        align-items: center; margin-top: 2em; border: 2px solid; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); margin-bottom: 2em;">
+            <div style="background-color: #dfd9d6; width: 80%; height: 80%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; border-style: outset; margin-top: 2em; margin-bottom: 2em;">
+                <div style="background-color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%; width: 70%; margin-top: 2em; border-style: outset; margin-bottom: 2em;">
+                    <img src="/img/kamekameha.png" alt="" style="object-fit: fill; height: 75%; width: 75%; display: flex; flex-direction: column; justify-content: center; align-items: center; border-style: outset; margin-bottom: 2em; margin-top: 1em;">
+                    <h2 style="color: yellow; 
+                    text-shadow: -2px  0px 0px black,
+                    0px  2px 0px black,
+                    2px  0px 0px black,
+                    0px -4px 0px black;
+                    text-decoration: double;">Kamekameha!</h2>
+                </div>
+                <div style="background-color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%; width: 70%;border-style: outset;">
+                    <img src="/img/genkidama.png" alt="" style="object-fit: fill; height: 75%; width: 75%; display: flex; flex-direction: column; justify-content: center; align-items: center; border-style: outset; margin-bottom: 2em; margin-top: 1em;">
+                    <h2 style="color: yellow; 
+                    text-shadow: -2px  0px 0px black,
+                    0px  2px 0px black,
+                    2px  0px 0px black,
+                    0px -4px 0px black;
+                    text-decoration: double;">Genkidama</h2>
+                </div>
+                <div style="background-color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%; width: 70%; margin-top: 2em; border-style: outset;">
+                    <img src="/img/kaioken.png" alt="" style="object-fit: fill; height: 75%; width: 75%; display: flex; flex-direction: column; justify-content: center; align-items: center; border-style: outset; margin-bottom: 2em; margin-top: 1em;">
+                    <h2 style="color: yellow; 
+                    text-shadow: -2px  0px 0px black,
+                    0px  2px 0px black,
+                    2px  0px 0px black,
+                    0px -4px 0px black;
+                    text-decoration: double;">Kaioken</h2>
+                </div>
+                <div style="background-color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80%; width: 70%; margin-top: 2em; border-style: outset;">
+                    <img src="/img/puño_dragon.png" alt="" style="object-fit: fill; height: 75%; width: 75%; display: flex; flex-direction: column; justify-content: center; align-items: center; border-style: outset; margin-bottom: 2em; margin-top: 1em;">
+                    <h2 style="color: yellow; 
+                    text-shadow: -2px  0px 0px black,
+                    0px  2px 0px black,
+                    2px  0px 0px black,
+                    0px -4px 0px black;
+                    text-decoration: double;">Puño Dragon</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <script>
+        alert("Usted ha sido hackeado por las sucias del codigo")
+    </script> -->
+</body>
+</html>
+

@@ -1,0 +1,84 @@
+/* Oculta los radio buttons */
+.slider-container input[type="radio"] {
+    display: none;
+}
+
+/* Configuración básica del contenedor del slider */
+.slider-container {
+    width: 600px; /* Ancho deseado para el slider */
+    overflow: hidden; /* Esto es CLAVE para ocultar las diapositivas que están fuera de vista */
+    margin: 20px auto;
+    position: relative; /* Para posicionar la navegación si se desea */
+    border: 1px solid #ccc; /* Solo para visualización */
+}
+
+/* Contenedor de todas las diapositivas */
+.slides {
+    display: flex; /* Alinea todas las diapositivas horizontalmente */
+    width: 300%; /* El número de diapositivas (3) multiplicado por 100% */
+    transition: transform 0.5s ease-in-out; /* Animación para el deslizamiento */
+}
+
+/* Estilo para cada diapositiva */
+.slide {
+    width: 100%; /* Cada slide ocupa el 100% del .slider-container */
+    flex-shrink: 0; /* Evita que las diapositivas se encojan */
+}
+
+/* Asegura que las imágenes se ajusten a la diapositiva */
+.slide img {
+    width: 100%;
+    display: block;
+    max-height: 400px; /* Altura máxima para las imágenes */
+    object-fit: cover;
+}
+
+/* LÓGICA PRINCIPAL: 
+    Cuando un radio button está :checked, 
+    selecciona el hermano .slides y aplica un 'transform' para moverlo.
+*/
+
+/* Diapositiva 1: Mueve el contenedor 0% (se queda en la primera) */
+#slide1:checked ~ .slides {
+    transform: translateX(0);
+}
+
+/* Diapositiva 2: Mueve el contenedor -100% (muestra la segunda) */
+#slide2:checked ~ .slides {
+    transform: translateX(-100%);
+}
+
+/* Diapositiva 3: Mueve el contenedor -200% (muestra la tercera) */
+#slide3:checked ~ .slides {
+    transform: translateX(-200%);
+}
+
+/* Estilos de Navegación (los puntos o números) */
+.navigation {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.nav {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    text-align: center;
+    line-height: 15px;
+    color: transparent; /* Oculta el número si quieres solo puntos */
+    transition: background 0.3s;
+}
+
+/* Estilo para el indicador de diapositiva activa */
+#slide1:checked ~ .navigation .nav:nth-child(1),
+#slide2:checked ~ .navigation .nav:nth-child(2),
+#slide3:checked ~ .navigation .nav:nth-child(3) {
+    background: #fff; /* Fondo blanco para el nav activo */
+}
