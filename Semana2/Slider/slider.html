@@ -3,31 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliders</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <title>Document</title>
+    <style>
+    :root{
+        --bg:#000;             /* color para las franjas */
+        --dot:#ebe3e3a1; --dot-active:#44eb08;
+    }
+    .carrusel{
+        width: min(90vw, 600px); /* 90vw: 90% del ancho de la ventana Viewport Width, 600px como valor maximo*/
+        /* mantiene proporción sin crecer demás */
+        aspect-ratio: 4 / 3;       
+        margin: 24px auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 14px;
+        background: var(--bg);
+    }
+    .trackN{
+        display: flex;
+        height: 100%;
+        transition: transform .4s ease;
+    }
+    .slide{
+        min-width: 100%;
+        height: 100%;
+      /* CLAVE: usar background en vez de <img> */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;    /* se ve completa la imagen */
+        background-color: var(--bg); /* relleno para márgenes */
+    }
+
+    /* Flechas */
+    .ctrl{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none; padding:0 8px}
+    .btn{
+        pointer-events:auto; cursor:pointer; border:none; width:42px; height:42px; border-radius:50%;
+        background:#00000066; color:#f5ee24; font-size:18px; display:grid; place-items:center;
+    }
+    .btn:hover{background:#00000099}
+
+    /* Dots */
+    .dots{position:absolute; left:50%; transform:translateX(-50%); bottom:10px; display:flex; gap:8px}
+    .dots button{width:10px; height:10px; border-radius:50%; border:1px solid #0357de; background:var(--dot); cursor:pointer}
+    .dots button[aria-current="true"]{background:var(--dot-active)}
+
+    /* Accesibilidad básica */
+    .btn:focus, .dots button:focus{outline:3px solid #ffffff88; outline-offset:2px}
+
+    .trackN .slide:nth-child(1) {
+        background-image: url('img/pugsito1.png');
+    }
+
+    .trackN .slide:nth-child(2) {
+        background-image: url('img/pugsito2.png');
+    }
+
+    .trackN .slide:nth-child(3) {
+        background-image: url('img/pugsito3.png');
+    }
+    </style>
 </head>
 <body>
-    <div class="slider-container">
-        <input type="radio" name="slider" id="slide1" checked>
-        <input type="radio" name="slider" id="slide2">
-        <input type="radio" name="slider" id="slide3">
+    <section class="container">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img src="img/gatito1.png" alt="" id="slider1">
+                    <img src="img/gatito2.png" alt="" id="slider2">
+                    <img src="img/gatito3.png" alt="" id="slider3">
+                </div>
+                <div class="slider-nav">
+                    <a href="#slider1"></a>
+                    <a href="#slider2"></a>
+                    <a href="#slider3"></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="slides">
-                <div class="slide" id="slide1-content">
-                    <img src="img/gatito1.png" alt="gatito1" style="width: 500px; height: 500px; padding-left: 3.5em;">
-                </div>
-                <div class="slide" id="slide2-content">
-                    <img src="img/gatito2.png" alt="gatito2" style="width: 500px; height: 500px; padding-left: 3.5em;">
-                </div>
-                <div class="slide" id="slide3-content">
-                    <img src="img/gatito3.png" alt="gatito3" style="width: 500px; height: 500px; padding-left: 3.5em;">
-                </div>
-            </div> 
-                <div class="navigation">
-                    <label for="slide1" class="nav">1</label>
-                    <label for="slide2" class="nav">2</label>
-                    <label for="slide3" class="nav">3</label>
-                </div>
-    </div> 
+    <section class="container-2">
+        <div class="carrusel" id="sliderN">
+            <div class="trackN" id="trackN">
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+            </div>
+            <div class="ctrl">
+                <button class="btn" id="prev"> &#10094; </button>
+                <button class="btn" id="next"> &#10095; </button>
+            </div>
+            <div class="dots" id="dots"></div>
+        </div>
+    </section>
 </body>
+<script>
+    const track = document.getElementById('trackN');
+    const total = track.children.length;
+    const dots = document.getElementById('dots');
+    let i = 0, timer;
+
+    function go(n){
+        i = (n + total) % total;
+        track.style.transform = `translateX(${-i*100}%)`;
+        [...dots.children].forEach((d,idx)=>d.setAttribute('aria-current', idx===i));
+        restart();
+    }
+
+    // Crear dots
+    for(let k=0;k<total;k++){
+        const d=document.createElement('button');
+        d.addEventListener('click',()=>go(k));
+        dots.appendChild(d);
+    }
+    go(0);
+
+    // Flechas
+    document.getElementById('prev').onclick=()=>go(i-1);
+    document.getElementById('next').onclick=()=>go(i+1);
+
+    // Autoplay suave - 5000 milisegundos - 5 segundos
+    function restart(){ clearInterval(timer); timer=setInterval(()=>go(i+1), 2000) }
+    restart();
+    document.getElementById('sliderN').addEventListener('mouseenter',()=>clearInterval(timer));
+    document.getElementById('sliderN').addEventListener('mouseleave',restart);
+</script>
 </html>
