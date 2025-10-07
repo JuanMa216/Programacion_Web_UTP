@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.header {
+    background-color: black;
+    display: flex;
+    /* width: 100%; */
+    height: 80px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 1px 1px 1px 2px rgba(38, 38, 41, 0.2);
+    position: fixed; /* Lo fija inmediatamente en la pantalla */
+    top: 0;        
+    width: 100%;    
+    z-index: 90;    
+}
+
+.nav_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu {
+    padding: 2em;
+    a {
+        text-decoration: none; 
+        color: white;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+}
+
+.about {
+    margin-top: 7rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    justify-content: flex-start;
+    align-items: center;
+    height: 350px;
+}
+
+.about-content {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    /* justify-content: space-around; */
+    margin-top: 2em;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3em;
+    /* background-color: black; */
+    flex: 75;
+    p {
+        text-align: justify;
+    }
+}
+
+.about-img {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    flex: 25;
+}
+
+.gon_img {
+    border: 10px solid grey;
+    border-radius: 25px;
+    border-style: outset;
+    }
+
+
+.servicios {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    justify-content: flex-start;
+    align-items: center;
+    height: 350px;
+}
+
+.servicios-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    margin-top: 2em;
+}
+
+.servicios-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 1em; */
+    /* background-color: black; */
+    flex: 75;
+    p {
+        text-align: justify;
+        margin-right: 2em;
+    }
+}
+
+.servicios-img {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    flex: 25;
+    margin-left: 3em;
+}
+
+/* La imagen en sí */
+.snorlax_img {
+    border: 10px solid grey;
+    border-radius: 25px;
+    border-style: outset;
+    /* object-fit: cover; */
+    height: 269px;
+    width: 269px;
+}
+
+.article_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.article_separador {
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2em;
+    background-color: black;
+    box-shadow: 1px 1px 1px 2px rgba(38, 38, 41, 0.2);
+}
+
+.article_h2 {
+    color: white;
+    font-weight: bold;
+}
+
+article {
+    height: 900px;
+}
+
+.article-text {
+    margin: 4em;
+    text-align: center;
+    text-indent: 0.5em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    p {
+        color: black;
+    }
+}
+
+.article-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+}
+
+.div-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    img {
+        object-fit: cover;
+        width: 300px;
+        height: 300px;
+        border: 5px solid black;
+        box-shadow: 1px 1px 1px 2px rgba(38, 38, 41, 0.2);
+        border-style: outset;
+    }
+}
+
+footer {
+    width: 100%;
+    height: 150px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.list_footer {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    list-style-type: none;
+    margin: 3em;
+}
+
+.menu-footer {
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
