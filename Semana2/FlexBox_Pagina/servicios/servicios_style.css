@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container_cards {
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
+    border-radius: 15px;
+    flex-wrap: nowrap;
+    p {
+        text-align: justify;
+        padding: 6px;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+}
+
+.card {
+    background-color: black;
+    width: 280px;
+    /* height: 410px; */
+    color: white;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.card-img {
+    height: 250px;
+    margin-bottom: 15px;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.card-1 {
+    background-image: url('https://i.pinimg.com/736x/3a/a0/51/3aa0515decdeeb7ff9d9cd71facc455e.jpg');
+}
+
+.card-2 {
+    background-image: url('https://i.pinimg.com/736x/64/c9/6b/64c96b17bc35c463c01d7c88569bb8b3.jpg');
+}
+
+.card-3 {
+    background-image: url('https://i.pinimg.com/736x/24/9d/5e/249d5e83ae46ccb9f997aa96977d4b2f.jpg');
+}
+
+.card p {
+    padding: 10px;
+}
+
+.card a {
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+    text-decoration: none;
+}
+
+.card:hover {
+    background-color: rgb(62, 62, 62);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 1s ease;
+}
