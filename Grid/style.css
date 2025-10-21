@@ -1,0 +1,131 @@
+body {
+    background-color: #ddd;
+}
+
+.pruebas {
+    display: flex;
+    flex-direction: column;
+}
+
+.container1 {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: lightcoral;
+    border: 3px solid black;
+    border-radius: 10px;
+    display: block;
+    display: grid;
+    /*grid-template-columns: Col1 Col2...;Indica la cantidad de Col. de nuestro grid y el tamaño que tendrán. Ejemplo:*/
+    grid-template-columns: 100px 100px; /*Dos col. de 100px*/
+    /*Por defecto, los elementos se irán apilando de arriba-abajo de izquierda-derecha ocupando el espacio disponible*/
+}
+
+.container2 {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: rgb(113, 130, 163);
+    border: 3px solid black;
+    border-radius: 10px;
+    display: block;
+    display: grid;
+    grid-template-columns: auto 20px 100px;
+    /*El valor de auto hace que el navegador elija el tamaño del elemento en función del espacio disponible y del contenido*/
+}
+
+.container3 {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: rgb(182, 194, 217);
+    border: 3px solid black;
+    border-radius: 10px;
+    display: block;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*Grid tiene una unidad propia para administrar la distribucion de sus elementos, esta unidad es fr.
+    1fr --> 100%, si fueran 2 columans seria: 1fr 1fr, y cada columna ocuparia: 100%/2. Dependerá de la cantidad  de columnas.
+    */
+    grid-template-rows: 100px 50px 30px 100px; /*Define la altura*/
+    /*Por defecto, si no definimos la distribucion de las filas, lo que hará será dividir el 100% por la cantidad de filas y de esta forma dividir de manera equitativa*/
+}
+
+.container4 {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: rgb(182, 194, 217);
+    border: 3px solid black;
+    border-radius: 10px;
+    display: block;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*Por defecto, al usar grid generará una fila nueva cuando se quede sin espacio, podemos definir el tamaño de las filas generadas sin necesidad de usar template-rows*/
+    /*Podemos combinar ambos atributos para definir el tamaño de una fila y generar el resto con una altura deseada*/
+    grid-template-rows: 100px; /*La primer fila tendrá 100px*/
+    grid-auto-rows: 50px; /*Todas las filas generadas tendrán una altura de 100px*/
+}
+
+.container5 {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: rgb(187, 194, 207);
+    border: 3px solid black;
+    border-radius: 10px;
+    display: block;
+    display: grid;
+    /*Muchas veces tendremos que repetir el uso de fr de manera multiple, para evitar ponerlo de manera manual podemos usar el metodo repeat(cantidad, tamaños). Ejemplo:*/
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+}
+
+.container6 {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: rgb(184, 186, 189);
+    border: 3px solid black;
+    border-radius: 10px;
+    display: block;
+    display: grid;
+    /*Sabemos que con fr toma una fraccion del espacio disponible, pero con el metodo minmax podemos definir el valor minimo/maximo que una columna o fila puede ocupar, minmax(min/max). Ejemplo:*/
+    grid-template-columns: minmax(200px, 1fr) repeat(2, 1fr);
+}
+
+.container1 div {
+    background-color: lightblue;
+    border: 2px solid #09f;
+    border-radius: 6px;
+}
+
+.container2 div {
+    background-color: rgb(86, 86, 176);
+    border: 2px solid rgb(132, 181, 213);
+    border-radius: 6px;
+}
+
+.container3 div {
+    background-color: rgb(64, 123, 65);
+    border: 2px solid rgb(123, 158, 143);
+    border-radius: 6px;
+}
+
+.container4 div {
+    background-color: rgb(123, 64, 65);
+    border: 2px solid rgb(56, 30, 30);
+    border-radius: 6px;
+}
+
+.container5 div {
+    background-color: rgb(211, 180, 180);
+    border: 2px solid rgb(124, 122, 122);
+    border-radius: 6px;
+}
+
+.container6 div {
+    background-color: rgb(158, 53, 166);
+    border: 2px solid rgb(169, 167, 167);
+    border-radius: 6px;
+}
